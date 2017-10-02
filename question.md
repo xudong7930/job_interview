@@ -1,3 +1,119 @@
+## 最常见的PHP面试题
+1. 高级PHP面试题1
+http://blog.csdn.net/s1070/article/details/51174710
+http://blog.csdn.net/s1070/article/details/51174725
+http://blog.csdn.net/s1070/article/details/51174733
+http://blog.csdn.net/s1070/article/details/51174698
+
+2. PHP中的HereDoc技术?
+答:
+$str = <<<EOF
+HEREW,
+FAEFWE
+FEAFA,
+FEWAF,
+DFSSD
+EOF;
+
+1. 写出一些php魔幻方法?
+答：
+    __construct()
+    __desctruct()
+    
+    __call()
+    __callStatic()
+    
+    __get()
+    __set()
+    
+    __isset()
+    __unset()
+    __sleep()
+    __wakeup()
+    __toString()
+    __invoke()
+    __set_state()
+    __clone()
+    __debugInfo()
+
+3. posix和perl标准的正则表达式区别?
+答：PHP同时支持两套标准。
+    定界符：
+    posix兼容的正则没有定界符
+    perl兼容的正则使用非字母，数字，反斜线作为定界符
+    
+    修饰符:
+    posix兼容的正则没有修饰符
+    perl兼容的正则使用i,m,s,x
+
+4. MySQL数据库作发布系统的存储，一天五万条以上的增量，预计运维三年,怎么优化？
+答：  
+    优化应该不仅仅是数据库方面
+    使用高性能的服务器
+    多使用缓存
+    页面服务器、数据库服务器、图片服务器、上传下载服务器分离
+    数据库集群，表分割（水平分割和垂直分割）和表散列
+    负载均衡
+    重视每个代码开发细节，特别是大循环，多请求和SQL语句复杂的时候
+
+5. 对于大流量的网站,您采用什么样的方法来解决各页面访问量统计问题
+    答：
+    1.首先，确认服务器硬件是否足够支持当前的流量。
+    2.其次，优化数据库访问，缓存技术。
+    3.第三，禁止外部的盗链。
+    4.第四，控制大文件的下载。
+    5.第五，使用不同主机分流主要流量
+    6.第六，使用流量分析统计软件
+
+
+6. 大型的论坛/新闻文章系统/SNS网站在性能优化上有什么区别?
+    答: 
+        新闻媒体注意细览页的性能优化，比如图片、结构，保持清爽；
+        SNS注意交互、页面JS、ajxa、动态内容大小；
+        严格控制大小、减少定向、压缩图片、降低CSS加载速度，利用好缓存，这是通的
+
+
+1. php是什么？
+答：超文本处理器，用于构建WEB的动态语言脚本
+
+2. 什么是mvc？
+答：全名是model/view/controller 是一种软件架构思想，将软件按照模型，视图，控制器来划分
+
+3. 在页面中引用css有几种方式？
+答: link引入，style标签，html标签的style属性
+
+4. php支持多继承吗？
+答: 单继承
+
+5. php中echo和print有什么区别？
+答: echo不是函数，没有返回值，更快
+    print有返回值的函数，打印字符串
+    print_r打印符合数据类型
+
+6. get和post方法有什么区别？
+答: get从服务器上获取数据
+    post把数据提交给服务器
+    传输的数据size有限制
+
+7. php中获取图像尺寸大小的方法是什么？
+
+8. php中的pear是什么？
+答：pear是php的包管理器，现在都使用composer了
+
+9. 如何用php和mysql上传视频？
+答: 保留上传的路径
+
+10. php中的错误类型有哪些？
+答: E_ALL, E_NOTICE, E_WARNING, E_STRICT
+
+11. 如何在php中定义常量？
+答: define('CONSTRNAME',"CONSTVALUE");
+
+12. 如何不使用submit按钮来提交表单？
+答: <a href="javascript: document.form.submit()">submit</a>
+
+13. mysql_fetch_row() 和mysql_fetch_array之间有什么区别? 
+14. 对于大流量的网站,您采用什么样的方法来解决访问量问题?
 
 ## MyISAM 和 InnoDB的区别?
 区别主要有以下几个:
