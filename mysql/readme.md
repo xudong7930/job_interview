@@ -73,6 +73,15 @@ select field1, field2 from table_name where column_name=value;
 # join, left join, right join, inner join
 select * from table as a join table2 as b where a.field1=b.field2;
 
+select * from class c left join students s on c.id = s.class_id;
+select * from class c left join students s on c.id = s.class_id where s.class_id is null;
+
+select * from class c inner join students s on c.id = s.class_id;
+
+select * from students s right join class c on  c.id = s.class_id; 
+select * from students s right join class c on  c.id = s.class_id where s.class_id is null;
+
+
 # query index
 show index from table_name;
 ```
@@ -99,6 +108,51 @@ mysqldump -h host -u root -p "db_name" "table_name" > file_name.sql
 # slow log
 mysqldumpslow -s [c:按记录次数排序/t:时间/l:锁定时间/r:返回的记录数] -t [n:前n条数据] -g "正则"　/path
 
+# mysql函数
+select now() as now;
+select uuid() as uuid;
+select md5('123') as pass;
+select concat(name,'__',email) from users;
+
+#mysql触发器
+delimiter $
+
+create trigger some_trigger "before|after" "insert|load data|replace|update|delete"
+on students for each row
+begin
+    set class_id = old.class_id; //old.name 删除行的某列数据, new.name 新增行的某列数据
+    update class set name=students.name where id=students.class_id;
+end $
+
+delimiter ;
+
+#mysql存储函数
+#存储函数有且只有一个返回值，而存储过程不能有返回值
+#存储函数只能有输入参数
+#存储函数可以作为查询语句的一个部分来调用
+#调用: select get_users_by_id(2);
+delimiter $
+
+create function get_users_by_id (user_id int) returns varchar(20)
+begin
+    return (select name from users where id=user_id);
+end $
+
+delimiter ;
+
+#mysql存储过程
+#调用: call get_users_by_id(4);
+delimiter $
+
+create procedure get_users_by_id (IN user_id int)
+begin
+    select * from users where id=user_id;
+end $
+
+delimiter ;
+
 # explain
+# 关注查询结果的rows
+# https://segmentfault.com/a/1190000008131735
 explain select * from users;
 ```

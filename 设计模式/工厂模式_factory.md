@@ -1,8 +1,9 @@
-工厂模式 (Factory Pattern)
-===============
+工厂模式 (Factory)
+==================
+
+> 工厂方法模式可以允许系统在不修改工厂角色的情况下引进新产品
 
 ```php
-<?php
 Interface Shape 
 {
     public function draw();
@@ -16,14 +17,6 @@ class Rectangle implements Shape
     }
 }
 
-class Square implements Shape
-{
-    public function draw()
-    {
-        echo 'Square::draw() !!!'.PHP_EOL;
-    }
-}
-
 class Circle implements Shape
 {
     public function draw()
@@ -31,7 +24,6 @@ class Circle implements Shape
         echo 'Circle::draw() !!!'.PHP_EOL;
     }
 }
-
 
 /**
 *  ShapeFactory
@@ -60,20 +52,7 @@ class ShapeFactory
     }
 }
 
-
-class User
-{
-    public function index()
-    {
-        $f = new ShapeFactory();
-        // $shape = $f->getShape('CIRCLE');
-        // $shape = $f->getShape('SQUARE');
-        $shape = $f->getShape('RECTANGLE');
-        $shape->draw();
-    }
-}
-
-$u = new User;
-$u->index();
-
+$f = new ShapeFactory();
+$shape = $f->getShape('RECTANGLE');
+$shape->draw();
 ```

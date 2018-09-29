@@ -172,4 +172,9 @@ SET collation_server = utf8 ;
 ```
 select * from user where rand() limit 10;
 ```
-
+#13.权限如何设计?
+```
+user-用户表, role-角色表, perm-权限表
+user_role-用户角色表,
+role_perm-角色权限表
+```
