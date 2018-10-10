@@ -24,7 +24,7 @@ select user_id,sum(price) s from orders group by user_id order by s desc limit 1
 
 ```
 
-#5.锁是怎么形成的呢？
+#5.死锁是怎么形成的呢？
 ```
 比如有两个文件：a.php和b.php
 a.php的操作是：先锁定A记录，然后再锁定B记录，只有锁住B记录才会释放A记录的锁

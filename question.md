@@ -35,6 +35,7 @@ EOF;
     __set_state()
     __clone()
     __debugInfo()
+    __autoload
 
 3. posix和perl标准的正则表达式区别?
 答：PHP同时支持两套标准。

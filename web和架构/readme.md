@@ -1,5 +1,5 @@
 
-#1.什么是CSRF攻击？XSS攻击？如何防范？
+#1.什么是CSRF攻击？XSS攻击？Xpath攻击? 如何防范？
 ```
 CSRF:https://baike.baidu.com/item/CSRF/2735433
 防范方式: CSRF TOKEN, 即提交表单时同时提交一段由服务端渲染表单时生成的token,通过校验token来防范csrf攻击
@@ -9,6 +9,8 @@ XSS:https://baike.baidu.com/item/xss/917356
 或者你的页面正常解析了用户提交的html代码,如用户提交的个人信息是:<img src="广告连接"><script>window.href="恶意网站连接"</script>,
 而你不加过滤转义就入库,然后页面正常解析html代码,最终用户访问这个页面就会跳转到恶意网站 ,这就是XSS
 防范方式: 过滤&&转义用户输入(如htmlentities、htmlspecialchars),永久不要信任客户端
+
+Xpath攻击: https://blog.csdn.net/quiet_girl/article/details/50588130
 ```
 
 #2.http与https的主要区别
@@ -232,4 +234,21 @@ Nginx的特点是：
     7、Nginx能支持http和Email，这样就在适用范围上面小很多；
     8、不支持Session的保持、对Big request header的支持不是很好，
     另外默认的只有Round-robin和IP-hash两种负载均衡算法。
+```
+
+
+#18.javascript跨域？
+```
+jsonp, cors
+```
+
+#19.出现性能瓶颈如何快速定位解决？
+```
+服务器负载 慢日志 xhprof 慢sql
+xhprof性能分析: https://blog.csdn.net/qq_28602957/article/details/72697901
+```
+
+#20.微服务
+```
+https://blog.csdn.net/wuxiaobingandbob/article/details/78642020?locationNum=1&fps=1
 ```
